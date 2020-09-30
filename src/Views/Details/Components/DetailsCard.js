@@ -1,6 +1,7 @@
 import React from 'react';
+import withFavorite from '../../../Hoc/withFavorite';
 
-function DetailsCard(props){
+function DetailsCard(props) {
     return (
         <div className='detailsCard'>
             <img className='sprite' src={props.sprite} alt={props.id} />
@@ -11,4 +12,4 @@ function DetailsCard(props){
     )
 }
 
-export default DetailsCard
+export default withFavorite(DetailsCard)
