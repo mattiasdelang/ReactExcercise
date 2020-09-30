@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import { Main } from './Views';
 
 function App() {
   return (
     <div className='appContainer'>
-      STEP 0
+      <Main />
     </div>
   );
 }
