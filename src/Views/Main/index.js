@@ -1,21 +1,16 @@
-import Axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useGet } from '../../Hooks/HttpHooks';
 import MainSprite from './Components/MainSprite';
 
-function Main(){
-    const[pokemon, setPokemon] = useState(null)
+function Main() {
 
-    useEffect(() => {
-        Axios.get('http://localhost:1337/pokemon').then(res=>{
-            setPokemon(res.data)
-        })
-    }, [])
+    const { data, loading, error } = useGet(`http://localhost:1337/pokemon`)
 
-    return(
-        <div>
-            {pokemon&&pokemon.map(p=><MainSprite key={p.id} {...p}/>)}
-        </div>
-    )
+
+    if (loading) return <span>loading...</span>
+    if (data) return data.map(p => <MainSprite key={p.id} {...p} />)
+    if (error) return <span>{error}</span>
+    return null
 }
 
 export default Main
