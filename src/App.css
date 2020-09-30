@@ -1,0 +1,45 @@
+.appContainer{
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.header{
+    width: 100vw;
+    height: 50px;
+    background-color: teal;
+    display: flex;
+    align-items: center;
+    padding-left: 50px;
+}
+.header .text{
+    color: white;
+    font-size: x-large;
+    text-decoration: none;
+}
+
+.detailsContainer{
+    margin-top: 50px;
+    width: 300px;
+    height: 500px;
+}
+
+.detailsNavigation{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.detailsCard{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.detailsCard .sprite{
+    align-self: center;
+}

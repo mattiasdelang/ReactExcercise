@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React-Excercise
 
-## Available Scripts
+## Step 0 - Setup
 
-In the project directory, you can run:
+Install all dependencies using `npm install`. All dependencies are alreay included in the `package.json` file.
 
-### `npm start`
+The `app.css` file is already imported in the app.js component. This file contains some css classes that can be used on the components. There is no need for inline styling.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Step 1 - Main View
+* Add a Main view
+* Render Main view in App
+* Fetch pokemon from api
+  * Make use of `useState()` and `useEffect()` 
+  * Use axios to fetch the data
+  * http://localhost:1337/pokemon
+* Render the pokemon images in the main view
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Step 2 - Details View
+* Add a Details View
+* Add a Router to `app.js`
+  * Check the react-router-dom documentation https://reactrouter.com/web/guides/quick-start
+  * Add a a route for both views
+    * Use `/` for the main view
+    * Use `/:id` for the details view
+  * Add a redirect for all other paths
+* Use Link to redirect to the Details view when a sprite is clicked
+  * Create a MainSprite component
 
-### `npm test`
+## Step 3 - Details Card
+* Get the id from the route params
+  * Use the useParams() hook from react-router-dom
+  * Fetch pokemon details from api
+    * http://localhost:1337/pokemon/${id}
+  * Create a DetailsCard Component
+    * Show Pokemon details {sprite, id, name, info}
+    * You can use `className='detailsCard'` for the cardContainer
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Step 4 - Header
+* Create a Header component
+  * The header should never be rerenderd
+  * Place a Home button that redirects to the main view
+  * Use `className='header'` for the header container and `className='text'` for the home link
 
-### `npm run build`
+## Step 5 - Custom Hook
+* Replace the getPokemon and getPokemon details useEffects by a custom hook
+  * https://reactjs.org/docs/hooks-custom.html
+  * Create HttpHooks.js file
+  * Create a useGet function that:
+    *  accepts a path parameter
+    *  returns a {data, error, loading} object
+*  Implement your newly made useGet hook in the details and main page
+   *  use conditional rendering to show when the request is loading
+   *  use conditional rendering to show when the request resulted in an error
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Step 6 - Back/Next
+* Add a back/next button to the detailsview
+  * the buttons are always visible unless:
+  * hide/disable the back button when the id is 1
+  * hide/disable the forward button when the id is 151
+  * Use `className='detailsContainer'` for the details container and `className='detailsNavigation'` for the button container
