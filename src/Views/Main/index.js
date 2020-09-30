@@ -1,5 +1,6 @@
 import Axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import MainSprite from './Components/MainSprite';
 
 function Main(){
     const[pokemon, setPokemon] = useState(null)
@@ -12,7 +13,7 @@ function Main(){
 
     return(
         <div>
-            {pokemon&&pokemon.map(p=><img key={p.id} src={p.sprite} alt={p.id}/>)}
+            {pokemon&&pokemon.map(p=><MainSprite key={p.id} {...p}/>)}
         </div>
     )
 }
