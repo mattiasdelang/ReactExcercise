@@ -43,3 +43,7 @@
 .detailsCard .sprite{
     align-self: center;
 }
+
+.favorite{
+    background-color: gold;
+}

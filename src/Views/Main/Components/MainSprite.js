@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import withFavorite from '../../../Hoc/withFavorite';
 
 function MainSprite(props) {
     return (
@@ -9,4 +10,4 @@ function MainSprite(props) {
     )
 }
 
-export default MainSprite
+export default withFavorite(MainSprite)
