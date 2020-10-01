@@ -37,7 +37,6 @@ The `app.css` file is already imported in the app.js component. This file contai
 
 ## Step 4 - Header
 * Create a Header component
-  * The header should never be rerenderd
   * Place a Home button that redirects to the main view
   * Use `className='header'` for the header container and `className='text'` for the home link
 
@@ -58,3 +57,18 @@ The `app.css` file is already imported in the app.js component. This file contai
   * hide/disable the back button when the id is 1
   * hide/disable the forward button when the id is 151
   * Use `className='detailsContainer'` for the details container and `className='detailsNavigation'` for the button container
+
+## Step 7 - Higher Order Component
+* Create a set/remove favorite button
+  * When pressed, send a PATCH request
+    * http://localhost:1337/pokemon/${id}
+    * request body looks like `JSON.stringify({favorite:BOOLEAN})`
+    * add `'Content-Type': 'application/json'` to the request's header
+* Add property to the Details component that tracks the state of favorite
+  * Dont forget to update the favorite property when you go back/fwd
+  * Pass the favorite property to right components
+* Create a higher order component withFavorite
+  * https://reactjs.org/docs/higher-order-components.html
+  * The HOC adds the favorite className to the component if the favorite property is true
+  * Use the HOC on the detail Card and the pokemon List
+
